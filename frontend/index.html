@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Resume Analyzer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.5;
+      background: #f7f7f7;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    textarea, button {
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 16px;
+      padding: 10px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      min-height: 220px;
+      background: white;
+    }
+
+    button {
+      cursor: pointer;
+      background: #222;
+      color: white;
+      border: none;
+      border-radius: 6px;
+    }
+
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 20px;
+      background: white;
+    }
+
+    .loading {
+      font-weight: bold;
+    }
+
+    .error {
+      color: darkred;
+      font-weight: bold;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>MP3 — AI Resume Feedback Analyzer</h1>
+  <p>Paste a resume and target job description to get AI-generated feedback.</p>
+
+  <label for="resume">Resume</label>
+  <textarea id="resume" placeholder="Paste the resume here..."></textarea>
+
+  <label for="job">Target Job Description</label>
+  <textarea id="job" placeholder="Paste the job description here..."></textarea>
+
+  <button id="analyzeBtn">Analyze Resume</button>
+
+  <div id="status"></div>
+  <div id="result"></div>
+
+  <script>
+    const analyzeBtn = document.getElementById("analyzeBtn");
+    const resumeInput = document.getElementById("resume");
+    const jobInput = document.getElementById("job");
+    const statusDiv = document.getElementById("status");
+    const resultDiv = document.getElementById("result");
+
+    analyzeBtn.addEventListener("click", async () => {
+      const resume_text = resumeInput.value.trim();
+      const job_description = jobInput.value.trim();
+
+      resultDiv.innerHTML = "";
+      statusDiv.innerHTML = "";
+
+      if (!resume_text || !job_description) {
+        statusDiv.innerHTML = '<p class="error">Please paste both the resume and the job description.</p>';
+        return;
+      }
+
+      statusDiv.innerHTML = '<p class="loading">Analyzing resume...</p>';
+
+      try {
+        const response = await fetch("http://127.0.0.1:8000/analyze", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ resume_text, job_description })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.detail || "Request failed.");
+        }
+
+        statusDiv.innerHTML = "";
+
+        resultDiv.innerHTML = `
+          <div class="card">
+            <pre>${data.result}</pre>
+          </div>
+        `;
+      } catch (error) {
+        statusDiv.innerHTML = `<p class="error">${error.message}</p>`;
+      }
+    });
+  </script>
+</body>
+</html>
