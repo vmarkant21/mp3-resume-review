@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Resume Analyzer</title>
   <style>
+<<<<<<< HEAD
     body {
       font-family: Arial, sans-serif;
       max-width: 1000px;
@@ -30,10 +31,239 @@
     textarea {
       min-height: 220px;
       background: white;
+=======
+    :root {
+      --ink: #0f172a;
+      --ink-soft: #475569;
+      --surface: #ffffff;
+      --surface-soft: #f8fafc;
+      --line: #dbe6f2;
+      --accent: #0f6fff;
+      --accent-2: #5b21b6;
+      --accent-soft: #e8f0ff;
+      --danger: #b91c1c;
+      --success: #15803d;
+      --warning: #b45309;
+      --radius: 16px;
+      --shadow-lg: 0 24px 70px rgba(2, 6, 23, 0.24);
+      --shadow-md: 0 16px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 34px 20px;
+      font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.55;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 10%, rgba(91, 33, 182, 0.24), transparent 35%),
+        radial-gradient(circle at 85% 8%, rgba(15, 111, 255, 0.2), transparent 30%),
+        linear-gradient(140deg, #020617 0%, #0f172a 48%, #111827 100%);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      width: 220px;
+      height: 220px;
+      border: 1px solid rgba(125, 211, 252, 0.2);
+      border-radius: 24px;
+      right: -70px;
+      top: 110px;
+      transform: rotate(20deg);
+    }
+
+    body::after {
+      width: 170px;
+      height: 170px;
+      border: 1px solid rgba(196, 181, 253, 0.22);
+      border-radius: 18px;
+      left: -60px;
+      bottom: 120px;
+      transform: rotate(16deg);
+    }
+
+    .app-shell {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.98);
+      border: 1px solid rgba(226, 232, 240, 0.85);
+      border-radius: 24px;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero {
+      padding: 26px 28px 22px;
+      background:
+        linear-gradient(100deg, rgba(15, 111, 255, 0.09) 0%, rgba(91, 33, 182, 0.08) 43%, rgba(236, 253, 245, 0.5) 100%),
+        #f8fbff;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .hero-copy {
+      max-width: 820px;
+    }
+
+    .hero-title {
+      margin: 0;
+      display: inline-block;
+      font-size: clamp(2.1rem, 3.2vw, 3.25rem);
+      font-weight: 830;
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      color: #050c1f;
+      text-wrap: balance;
+      text-shadow: 0 14px 34px rgba(30, 64, 175, 0.12);
+    }
+
+    .hero-title-accent {
+      position: relative;
+      display: inline-block;
+      background: linear-gradient(112deg, #0057d9 0%, #3b82f6 42%, #5b21b6 92%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 10px 24px rgba(59, 130, 246, 0.2);
+    }
+
+    .hero-title-accent::after {
+      content: "";
+      position: absolute;
+      left: 2px;
+      right: 2px;
+      bottom: -4px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(110deg, rgba(14, 165, 233, 0.45), rgba(79, 70, 229, 0.45));
+    }
+
+    .subtitle {
+      margin: 18px 0 0;
+      max-width: 780px;
+      font-size: clamp(1rem, 1.05vw, 1.1rem);
+      line-height: 1.72;
+      letter-spacing: 0.01em;
+      color: #2f3f56;
+      text-wrap: pretty;
+      border-left: 0;
+      padding-left: 0;
+      font-weight: 460;
+    }
+
+    .content {
+      padding: 24px 24px 28px;
+    }
+
+    .fields-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .field-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #fff;
+      box-shadow: var(--shadow-md);
+    }
+
+    .field-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11px 13px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(120deg, #f8fbff 0%, #f1f5f9 100%);
+    }
+
+    label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #334155;
+    }
+
+    .field-meta {
+      font-size: 0.78rem;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    .doc-input {
+      width: 100%;
+      min-height: 315px;
+      resize: vertical;
+      border: none;
+      border-radius: 0;
+      border-left: 5px solid #dbeafe;
+      padding: 14px 16px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--ink);
+      background:
+        linear-gradient(transparent 0, transparent calc(1.6em - 1px), #eef2ff calc(1.6em - 1px), #eef2ff 1.6em),
+        linear-gradient(#fff, #fff);
+      background-size: 100% 1.6em, 100% 100%;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .doc-input::placeholder {
+      color: #7b8797;
+    }
+
+    .doc-input:focus {
+      outline: none;
+      border-left-color: var(--accent);
+      box-shadow: inset 0 0 0 2px rgba(15, 111, 255, 0.14);
+    }
+
+    .action-row {
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid #d5e2f2;
+      background: linear-gradient(120deg, #f9fbff 0%, #f8fafc 100%);
+    }
+
+    .action-copy {
+      font-size: 0.84rem;
+      color: #475569;
+>>>>>>> 3b5b0f7 (modified index.html to include more aesthetic styling and added CSS)
     }
 
     button {
       cursor: pointer;
+<<<<<<< HEAD
       background: #222;
       color: white;
       border: none;
@@ -61,10 +291,192 @@
       white-space: pre-wrap;
       word-wrap: break-word;
       font-family: Arial, sans-serif;
+=======
+      border: none;
+      border-radius: 12px;
+      padding: 11px 18px;
+      font-size: 0.94rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent) 0%, #2563eb 50%, var(--accent-2) 100%);
+      transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+      box-shadow: 0 12px 22px rgba(37, 99, 235, 0.3);
+    }
+
+    button:hover:not(:disabled) {
+      transform: translateY(-1px);
+      background: linear-gradient(135deg, #0a5ce2 0%, #1d4ed8 50%, #4c1d95 100%);
+    }
+
+    button:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    button:disabled {
+      cursor: wait;
+      opacity: 0.75;
+    }
+
+    #status {
+      margin-top: 14px;
+      min-height: 44px;
+    }
+
+    .status-pill {
+      margin: 0;
+      padding: 10px 12px;
+      border-radius: 11px;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+      font-weight: 650;
+    }
+
+    .status-pill.loading {
+      color: #1e40af;
+      background: #eff6ff;
+      border-color: #bfdbfe;
+    }
+
+    .status-pill.success {
+      color: #166534;
+      background: #f0fdf4;
+      border-color: #bbf7d0;
+    }
+
+    .error {
+      padding: 10px 12px;
+      border-radius: 11px;
+      color: var(--danger);
+      font-weight: 700;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+    }
+
+    .analysis-shell {
+      margin-top: 10px;
+      border: 1px solid #d8e4f3;
+      border-radius: 16px;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .analysis-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 1px solid #dbe6f2;
+      padding: 12px 14px;
+      background: linear-gradient(110deg, #f1f5ff 0%, #f7fbff 100%);
+    }
+
+    .result-title {
+      margin: 0 0 12px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: #1d4ed8;
+      font-weight: 800;
+    }
+
+    .analysis-tag {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      color: #0f766e;
+      background: #ecfeff;
+      border: 1px solid #99f6e4;
+      border-radius: 999px;
+      padding: 4px 9px;
+    }
+
+    .analysis-body {
+      padding: 16px 14px 14px;
+    }
+
+    pre {
+      margin: 0;
+      white-space: pre-wrap;
+      overflow-wrap: break-word;
+      font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+      font-size: 0.95rem;
+      color: #0f172a;
+    }
+
+    .insight-rail {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .insight-card {
+      border: 1px solid #d9e6f5;
+      border-radius: 12px;
+      background: var(--surface-soft);
+      padding: 10px;
+    }
+
+    .insight-card h3 {
+      margin: 0 0 4px;
+      font-size: 0.77rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #334155;
+    }
+
+    .insight-card p {
+      margin: 0;
+      font-size: 0.83rem;
+      color: #64748b;
+      line-height: 1.45;
+    }
+
+    @media (max-width: 860px) {
+      body {
+        padding: 16px 10px;
+      }
+
+      .hero,
+      .content {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .fields-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .doc-input {
+        min-height: 200px;
+      }
+
+      .insight-rail {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-title {
+        font-size: clamp(1.8rem, 8.2vw, 2.45rem);
+        line-height: 1.08;
+      }
+
+      .subtitle {
+        margin-top: 14px;
+        line-height: 1.65;
+      }
+>>>>>>> 3b5b0f7 (modified index.html to include more aesthetic styling and added CSS)
     }
   </style>
 </head>
 <body>
+<<<<<<< HEAD
   <h1>MP3 — AI Resume Feedback Analyzer</h1>
   <p>Paste a resume and target job description to get AI-generated feedback.</p>
 
@@ -78,19 +490,97 @@
 
   <div id="status"></div>
   <div id="result"></div>
+=======
+  <main class="app-shell">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1 class="hero-title"><span class="hero-title-accent">AI Resume</span> Feedback Analyzer</h1>
+          <p class="subtitle">Bring your resume and target role into one workspace to detect alignment gaps, sharpen phrasing, and elevate impact bullets with role-aware feedback.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="fields-grid">
+        <div class="field-card">
+          <div class="field-head">
+            <label for="resume">Resume</label>
+            <span class="field-meta" id="resumeMeta">0 words</span>
+          </div>
+          <textarea class="doc-input" id="resume" placeholder="Paste the resume here..."></textarea>
+        </div>
+
+        <div class="field-card">
+          <div class="field-head">
+            <label for="job">Target Job Description</label>
+            <span class="field-meta" id="jobMeta">0 words</span>
+          </div>
+          <textarea class="doc-input" id="job" placeholder="Paste the job description here..."></textarea>
+        </div>
+      </div>
+
+      <div class="action-row">
+        <button id="analyzeBtn">Analyze Resume</button>
+        <span class="action-copy">Tip: stronger feedback comes from full resumes and detailed job descriptions.</span>
+      </div>
+
+      <div id="status"></div>
+      <div id="result"></div>
+    </section>
+  </main>
+>>>>>>> 3b5b0f7 (modified index.html to include more aesthetic styling and added CSS)
 
   <script>
     const analyzeBtn = document.getElementById("analyzeBtn");
     const resumeInput = document.getElementById("resume");
     const jobInput = document.getElementById("job");
+<<<<<<< HEAD
     const statusDiv = document.getElementById("status");
     const resultDiv = document.getElementById("result");
 
+=======
+    const resumeMeta = document.getElementById("resumeMeta");
+    const jobMeta = document.getElementById("jobMeta");
+    const statusDiv = document.getElementById("status");
+    const resultDiv = document.getElementById("result");
+
+    function countWords(text) {
+      const trimmed = text.trim();
+      if (!trimmed) return 0;
+      return trimmed.split(/\s+/).length;
+    }
+
+    function updateMeta() {
+      resumeMeta.textContent = `${countWords(resumeInput.value)} words`;
+      jobMeta.textContent = `${countWords(jobInput.value)} words`;
+    }
+
+    function setStatus(type, message) {
+      if (!message) {
+        statusDiv.innerHTML = "";
+        return;
+      }
+
+      if (type === "error") {
+        statusDiv.innerHTML = `<p class="error">${message}</p>`;
+        return;
+      }
+
+      statusDiv.innerHTML = `<p class="status-pill ${type}">${message}</p>`;
+    }
+
+    resumeInput.addEventListener("input", updateMeta);
+    jobInput.addEventListener("input", updateMeta);
+    updateMeta();
+
+>>>>>>> 3b5b0f7 (modified index.html to include more aesthetic styling and added CSS)
     analyzeBtn.addEventListener("click", async () => {
       const resume_text = resumeInput.value.trim();
       const job_description = jobInput.value.trim();
 
       resultDiv.innerHTML = "";
+<<<<<<< HEAD
       statusDiv.innerHTML = "";
 
       if (!resume_text || !job_description) {
@@ -99,6 +589,18 @@
       }
 
       statusDiv.innerHTML = '<p class="loading">Analyzing resume...</p>';
+=======
+      setStatus("", "");
+
+      if (!resume_text || !job_description) {
+        setStatus("error", "Please paste both the resume and the job description.");
+        return;
+      }
+
+      analyzeBtn.disabled = true;
+      analyzeBtn.textContent = "Analyzing...";
+      setStatus("loading", "Analyzing resume...");
+>>>>>>> 3b5b0f7 (modified index.html to include more aesthetic styling and added CSS)
 
       try {
         const response = await fetch("http://127.0.0.1:8000/analyze", {
@@ -115,6 +617,7 @@
           throw new Error(data.detail || "Request failed.");
         }
 
+<<<<<<< HEAD
         statusDiv.innerHTML = "";
 
         resultDiv.innerHTML = `
@@ -124,6 +627,41 @@
         `;
       } catch (error) {
         statusDiv.innerHTML = `<p class="error">${error.message}</p>`;
+=======
+        setStatus("success", "Analysis complete. Review your feedback below.");
+
+        resultDiv.innerHTML = `
+          <div class="analysis-shell">
+            <div class="analysis-head">
+              <p class="result-title">Analysis Result</p>
+              <span class="analysis-tag">Generated by AI</span>
+            </div>
+            <div class="analysis-body">
+              <pre id="resultText"></pre>
+            </div>
+          </div>
+          <div class="insight-rail">
+            <article class="insight-card">
+              <h3>Keyword Alignment</h3>
+              <p>Use the feedback to mirror the job's exact terminology where it is truthful and relevant.</p>
+            </article>
+            <article class="insight-card">
+              <h3>Impact Framing</h3>
+              <p>Prioritize measurable outcomes over responsibilities to improve recruiter signal.</p>
+            </article>
+            <article class="insight-card">
+              <h3>Role Story</h3>
+              <p>Ensure each section supports one clear narrative: why you fit this target role now.</p>
+            </article>
+          </div>
+        `;
+        document.getElementById("resultText").textContent = data.result;
+      } catch (error) {
+        setStatus("error", error.message);
+      } finally {
+        analyzeBtn.disabled = false;
+        analyzeBtn.textContent = "Analyze Resume";
+>>>>>>> 3b5b0f7 (modified index.html to include more aesthetic styling and added CSS)
       }
     });
   </script>
